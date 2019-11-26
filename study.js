@@ -37,3 +37,8 @@ app.listen(3001,()=>{
 //思想就是把 react组件当作一个react变量，但是react-dom并不能解析事件，如何解决
 //同构：将一套react代码在服务器上运行一遍，到达浏览器后再运行一遍,服务端渲染完成页面结构，浏览器端拉取js文件渲染完成事件绑定(通过react-dom)
 
+/** 
+ * express开启静态文件支持 应用了express.static中间件 目录为public,绝对路径
+ * npm-run-all包实现了一行代码跑多个命令行的便捷操作
+*/
+
