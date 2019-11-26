@@ -41,4 +41,6 @@ app.listen(3001,()=>{
  * express开启静态文件支持 应用了express.static中间件 目录为public,绝对路径
  * npm-run-all包实现了一行代码跑多个命令行的便捷操作
 */
+//同构分工：客户端：解析事件，生成js，服务端解析html
+//同构中的路由问题：
 
