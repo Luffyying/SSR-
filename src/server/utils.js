@@ -1,38 +1,31 @@
 import { renderToString } from 'react-dom/server';
 import {  StaticRouter } from 'react-router-dom'; 
 import React from 'react'
-import { Provider } from "react-redux";
+import routes from '../Routes'
+// import { Provider } from "react-redux";
 import { renderRoutes } from 'react-router-config';
 import { Helmet } from 'react-helmet';
 
-export const render = (store, routes, req, context) => {
+export const render = (req) => {
   const content = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
-        <div>
+    // <Provider>
+      <StaticRouter location={req.path}>
+        {/* <div> */}
           {renderRoutes(routes)}
-        </div>
+        {/* </div> */}
       </StaticRouter>
-    </Provider>
+    // </Provider>
   );
-  const helmet = Helmet.renderStatic();
+  // const helmet = Helmet.renderStatic();
 
-  const cssStr = context.css.length ? context.css.join('\n') : '';
+  // const cssStr = context.css.length ? context.css.join('\n') : '';
 
   return  `
     <html>
       <head>
-        <style>${cssStr}</style>
-        ${helmet.title.toString()}
-        ${helmet.meta.toString()}
       </head>
       <body>
         <div id="root">${content}</div>
-        <script>
-          window.context = {
-            state: ${JSON.stringify(store.getState())}
-          }
-        </script>
         <script src="/index.js"></script>
       </body>
     </html>

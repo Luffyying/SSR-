@@ -51,18 +51,23 @@ import express from 'express'
 import Home from '../../react'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import { render } from './utils'
 const variable = ReactDOMServer.renderToString(<Home />)
 
 var app = express()
 app.use(express.static('public'));
-app.get('/',(req,res)=>{
-    res.send(
-        `<html>
-        <body>${variable}hello ssr</body>
-        <script src="/index.js"></script>
-        </html>`
-    )
+//前端控制路由，
+app.get('*',(req,res)=>{
+    res.send(render(req))
 })
+// app.get('/',(req,res)=>{
+//     res.send(
+//         `<html>
+//         <body>${variable}hello ssr</body>
+//         <script src="/index.js"></script>
+//         </html>`
+//     )
+// })
 app.get('/test',(req,res)=>{
     res.send(
         `<html>
