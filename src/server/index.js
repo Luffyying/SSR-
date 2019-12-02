@@ -56,7 +56,7 @@ const variable = ReactDOMServer.renderToString(<Home />)
 
 var app = express()
 app.use(express.static('public'));
-//前端控制路由，
+//注意这里使用*来匹配，前端控制路由
 app.get('*',(req,res)=>{
     res.send(render(req))
 })
@@ -68,13 +68,14 @@ app.get('*',(req,res)=>{
 //         </html>`
 //     )
 // })
-app.get('/test',(req,res)=>{
-    res.send(
-        `<html>
-        <body>test</body>
-        </html>`
-    )
-})
+// 下面的无效。
+// app.get('/test',(req,res)=>{
+//     res.send(
+//         `<html>
+//         <body>test</body>
+//         </html>`
+//     )
+// })
 app.listen(3001,()=>{
     console.log('listen 3001');
 })
