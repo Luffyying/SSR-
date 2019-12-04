@@ -4,11 +4,8 @@ import { getHomeList } from './store/actions';
 import { Helmet } from 'react-helmet';
 
 class Home extends Component {
-  // getList() {
-  //   const { list } = this.props
-  //   return list.map(item => <div key={item.id}>{item.title}</div>)
-  // }
   render() { 
+    const { list } = this.props;
     return (
       <Fragment>
         <Helmet>
@@ -16,33 +13,25 @@ class Home extends Component {
           <meta name="description" content="分享前端知识"/>
         </Helmet>
         <div className="test">
-          {/* {
-            this.getList()
-          } */}
+          {JSON.stringify(list)}
         </div>
       </Fragment>
      
     )
   }
-  // componentDidMount() {
-  //   if (!this.props.list.length) {
-  //     this.props.getHomeList()
-  //   }
-  // }
 }
 
-// const mapStateToProps = state => ({
-//   list: state.home.newsList,
-// });
-// const mapDispatchToProps = dispatch => ({
-//   getHomeList() {
-//     dispatch(getHomeList())
-//   }
-// });
-// const exportHome = connect(mapStateToProps, mapDispatchToProps)(WithStyle(Home, styles));
+const mapStateToProps = state => ({
+  list: state.home.newsList,
+});
+const mapDispatchToProps = dispatch => ({
+  getHomeList() {
+    dispatch(getHomeList())
+  }
+});
+const exportHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 
 // exportHome.loadData = (store) => {
 //   return store.dispatch(getHomeList())
 // };
-// export default exportHome;
-export default Home
+export default exportHome;

@@ -1,7 +1,7 @@
 import { CHANGE_LIST } from "./constants";
 
 const defaultState = {
-  name: 'sanyuan',
+  name: '888',
   newsList: []
 };
 

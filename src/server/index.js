@@ -53,13 +53,21 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { render } from './utils'
 const variable = ReactDOMServer.renderToString(<Home />)
-
+// console.log(variable);
+//react-dom这个库可以将react元素渲染为初始html,也就是直接生成html,但是
 var app = express()
 app.use(express.static('public'));
+//设置代理
+app.use('/api', proxy('http://localhost:4000', {
+  proxyReqPathResolver: function(req) {
+    return '/api'+req.url
+  }
+}));
 //注意这里使用*来匹配，前端控制路由
 app.get('*',(req,res)=>{
     res.send(render(req))
 })
+
 // app.get('/',(req,res)=>{
 //     res.send(
 //         `<html>
@@ -79,3 +87,4 @@ app.get('*',(req,res)=>{
 app.listen(3001,()=>{
     console.log('listen 3001');
 })
+//have a test
