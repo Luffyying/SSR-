@@ -14,7 +14,7 @@
 
 > 本地测试
 
-1. npm install
+1. npm install nodemon ,npm install
 2. npm run test 实时打包服务端代码 example1.js
 3. npm run client 实时打包客户端代码 client.js
 4. nodemon --watch build --exec node public/bundle3.js 开启服务
