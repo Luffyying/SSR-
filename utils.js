@@ -12,7 +12,7 @@ export const render = (req) => {
     return `
     <html>
       <body>
-        <div id="root">服务端的代码</div>
+        <div id="root">${content}</div>
         <script src="/chunk.js"></script>
       </body>
     </html>
