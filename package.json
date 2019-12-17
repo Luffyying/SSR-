@@ -32,6 +32,8 @@
     "isomorphic-style-loader": "^5.1.0"
   },
   "scripts": {
+    "client":"webpack --config webpack.client.js --watch",
+    "test": "webpack --config webpack.test.js --watch",
     "dev": "npm-run-all --parallel dev:**",
     "dev:build:server": "webpack --config webpack.server.js --watch",
     "dev:build:client": "webpack --config webpack.client.js --watch",

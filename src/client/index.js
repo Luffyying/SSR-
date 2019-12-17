@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+var React = require('react');
 import ReactDom from 'react-dom'
 import Home from '../containers/Home';
 import Login from '../containers/Login'
@@ -9,11 +10,11 @@ import {Provider} from 'react-redux';
 import store from '../store';
 const App = () => {
     return (
-        <Provider store={store}>
+        // <Provider>
             <BrowserRouter>
                 {renderRoutes(Routes)}
             </BrowserRouter>
-        </Provider>
+        // </Provider>
     )
 }
 ReactDom.hydrate(<App />,document.getElementById('root'))

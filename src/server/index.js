@@ -49,9 +49,11 @@
 // })
 import express from 'express'
 import Home from '../../react'
-import React from 'react'
+var React = require('react');
+// import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { render } from './utils'
+import proxy from 'express-http-proxy';
 const variable = ReactDOMServer.renderToString(<Home />)
 // console.log(variable);
 //react-dom这个库可以将react元素渲染为初始html,也就是直接生成html,但是

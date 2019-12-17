@@ -1,6 +1,8 @@
+var React = require('react');
 import { renderToString } from 'react-dom/server';
 import {  StaticRouter } from 'react-router-dom'; 
-import React from 'react'
+// import React from 'react'
+
 import routes from '../Routes'
 import { Provider } from "react-redux";
 import { renderRoutes } from 'react-router-config';

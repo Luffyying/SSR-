@@ -1,9 +1,15 @@
-import React, { Component, Fragment } from 'react';
+var React = require('react');
+import { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getHomeList } from './store/actions';
 import { Helmet } from 'react-helmet';
 
 class Home extends Component {
+  componentDidMount() {
+    if (!this.props.list.length) {
+      this.props.getHomeList()
+    }
+  }
   render() { 
     const { list } = this.props;
     return (
@@ -25,13 +31,14 @@ const mapStateToProps = state => ({
   list: state.home.newsList,
 });
 const mapDispatchToProps = dispatch => ({
-  getHomeList() {
-    dispatch(getHomeList())
+  getHomeList: ()=> {
+    dispatch({type:'CHANGE_LIST'})
   }
 });
-const exportHome = connect(mapStateToProps, mapDispatchToProps)(Home);
+const exportHome = connect(mapStateToProps)(Home);
 
 // exportHome.loadData = (store) => {
 //   return store.dispatch(getHomeList())
 // };
 export default exportHome;
+// export default Home;

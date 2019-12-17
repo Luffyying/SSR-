@@ -1,14 +1,17 @@
 const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 const merge = require('webpack-merge')
 const config = require('./webpack.base')
 
-const clientConfig = {
+const serverConfig = {
+  target: 'node',
   mode: 'development',
-  entry: './client.js',
+  entry: './example1.js',
+  externals: [nodeExternals()],
   module: {
     rules: [{
       test: /\.css?$/,
-      use: ['style-loader', {
+      use: ['isomorphic-style-loader', {
         loader: 'css-loader',
         options: {
           modules: true
@@ -17,9 +20,9 @@ const clientConfig = {
     }]
   },
   output: {
-    filename: 'chunk.js',
+    filename: 'bundle3.js',
     path: path.resolve(__dirname, 'public')
-  },
+  }
 }
 
-module.exports = merge(config, clientConfig)
+module.exports = merge(config, serverConfig)
