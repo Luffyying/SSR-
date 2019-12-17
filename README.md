@@ -1,4 +1,20 @@
-1. ssr csr的最大区别就是前者是js负责进行（直接返回html字符串，），而后者是服务器返回html文件，浏览器需要先下载，后利用html解析器开始解析
-2. 同构的时候ReactDOM.hydrate() 单独生成一份绑定事件的js文件，插入到server html中,通常说的客户端渲染，就包括下载这个js文件,就是它来完成同构
-3. 同构的最大好处就是把之前所有的页面都放在客户端（浏览器端）来执行,分开处理（一部分服务端处理）
-4. res.send() 发送http响应，body的参数可以是多种，如果是字符串，则content-type:text/html
+
+> 此次参与的所有本地测试文件都在根目录下，暂时比较乱，二期后整合
+
+**已解决部分**
+1. 一级路由配置
+
+**待解决部分**
+
+- [ ]  加入redux
+- [ ]  异步数据的服务端渲染
+- [ ]  node作中间层
+- [ ]  多级路由渲染
+- [ ]  CSS的服务端渲染思路
+
+> 本地测试
+
+1. npm install
+2. npm run test 实时打包服务端代码 example1.js
+3. npm run client 实时打包客户端代码 client.js
+4. nodemon --watch build --exec node public/bundle3.js 开启服务
