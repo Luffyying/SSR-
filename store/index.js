@@ -7,7 +7,7 @@ const reducer = combineReducers({
 })
 //创建store,并引入中间件thunk进行异步操作的管理
 const store = createStore(reducer,applyMiddleware(chunk))
-export default store;
+export default createStore(reducer,applyMiddleware(chunk));
 // export default ()=>{
 //     return createStore(reducer,applyMiddleware(chunk))
 // }
