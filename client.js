@@ -4,6 +4,8 @@ import { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import routes from './routes'
+import { Provider } from 'react-redux'
+import store from './store'
 //创建react元素有很多种
 // var App = React.createClass({
 //   propTypes:{},
@@ -17,9 +19,11 @@ class App extends PureComponent{
   }
   render(){
     return (
+      <Provider store={store}>
         <BrowserRouter>
           {routes}
         </BrowserRouter> 
+      </Provider>
     )
   }
 }

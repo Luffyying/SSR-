@@ -17,13 +17,15 @@
 import { CHANGE_LIST } from "./constants";
 import axios from 'axios';
 //普通的action
-const changeList = list => ({
+export const changeList = list => ({
   type:CHANGE_LIST,
   list
 }) 
+
 //异步action采用thunk中间件
 export const getHomeList = () => {
-  return () => {
+  const list = [1,2,3]
+  return (dispatch) => {
     return axios.get('/api/news.json').then(res=>{
       dispatch(changeList(list))
     })

@@ -2,7 +2,7 @@ import { CHANGE_LIST } from "./constants";
 
 const defaultState = {
   name: '888',
-  newsList: []
+  newsList: [2]
 };
 
 export default (state = defaultState, action) => {

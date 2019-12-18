@@ -10,6 +10,7 @@
     "@babel/preset-stage-0": "^7.0.0",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
+    "create-react-class": "^15.6.3",
     "css-loader": "^3.0.0",
     "express": "^4.17.1",
     "express-http-proxy": "^1.5.1",
@@ -17,7 +18,7 @@
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "react-helmet": "^5.2.1",
-    "react-redux": "^7.1.0",
+    "react-redux": "^6.0.1",
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
@@ -32,7 +33,7 @@
     "isomorphic-style-loader": "^5.1.0"
   },
   "scripts": {
-    "client":"webpack --config webpack.client.js --watch",
+    "client": "webpack --config webpack.client.js --watch",
     "test": "webpack --config webpack.test.js --watch",
     "dev": "npm-run-all --parallel dev:**",
     "dev:build:server": "webpack --config webpack.server.js --watch",
