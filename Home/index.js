@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { getHomeList } from '../src/containers/Home/store/actions';
 import { changeList } from '../src/containers/Home/store/actions';
+//引入css
+import './style.css'
 const mapStateToProps = state => ({
   list: state.home.newsList,
 })

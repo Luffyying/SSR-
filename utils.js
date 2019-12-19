@@ -21,6 +21,12 @@ export const render = (req) => {
       <body>
         <div id="root">${content}</div>
         <script src="/chunk.js"></script>
+        <script>
+         console.log('--服务端的注水')
+         window.context ={
+           state:${JSON.stringify(store)}
+         }
+        </script>
       </body>
     </html>
     `

@@ -8,6 +8,12 @@ const reducer = combineReducers({
 //创建store,并引入中间件thunk进行异步操作的管理
 const store = createStore(reducer,applyMiddleware(chunk))
 export default createStore(reducer,applyMiddleware(chunk));
+//分别创建服务端和客户端的store
+//客户端：
+export const getClientStore = ()=>{
+    const defaultStore = window.context ? window.msContentScript.state:{}
+    return createStore(reducer,defaultState,applyMiddleware(chunk))
+}
 // export default ()=>{
 //     return createStore(reducer,applyMiddleware(chunk))
 // }
