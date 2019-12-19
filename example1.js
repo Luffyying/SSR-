@@ -1,5 +1,8 @@
 import React from 'react';
 import {render} from './utils';
+import Routes from './routes'
+import store from './store'
+import { matchRoutes} from 'react-router-config';
 let express = require("express");
 let ReactDOMServer = require('react-dom/server');
 
@@ -11,7 +14,25 @@ let app = express();
 app.use(express.static('public'));
 //添加路由后注意使用*来匹配
 app.get("*", (req, res) => {
-  res.send(render(req));
+  //调用matchRoutes用来匹配当前路由（支持多级路由）
+  const matchedRoutes = matchRoutes(Routes,req.path)
+  console.log(matchedRoutes);
+  // promise对象数组
+  const promises = [];
+  matchedRoutes.forEach(item=>{
+    if(item.route.loadData){
+      //如果当前组件需要挂载全局变量
+      const promise = new Promise((resolve,reject)=>{
+        item.route.loadData(store).then(resolve).catch(resolve)
+      })
+      promises.push(promise)
+    }
+  })
+  
+  Promise.all(promises).then(()=>{
+    res.send(render(req));
+  })
+  // res.send(render(req));
 });
 app.listen(3001,()=>{
   console.log('listen:3001');

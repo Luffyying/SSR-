@@ -23,10 +23,11 @@ export const changeList = list => ({
 }) 
 
 //异步action采用thunk中间件
-export const getHomeList = () => {
-  const list = [1,2,3]
+export const getHomeList = (server) => {
+  const list = [1,2,3,4]
   return (dispatch) => {
-    return axios.get('/api/news.json').then(res=>{
+    // return axios.get('/api/news.json').then(res=>{
+    return Promise.resolve().then(res=>{
       dispatch(changeList(list))
     })
   }

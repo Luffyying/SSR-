@@ -32,7 +32,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   getHomeList: ()=> {
-    dispatch({type:'CHANGE_LIST'})
+    var a = dispatch({type:'CHANGE_LIST'})
+    console.log(a);
   }
 });
 const exportHome = connect(mapStateToProps)(Home);

@@ -14,7 +14,7 @@ export default createStore(reducer,applyMiddleware(chunk));
 /**store的常用的方法
  * 1.getState()
  * 2.dispatch(action) action:function add(text)({return {type:'ADD',text}})
- * dispatch(add('have a test'))
+ * dispatch(add('have a test')) 返回一个promise？no, Object, the dispatched action
  * 3.subscribe(listener)
  * 
  */
