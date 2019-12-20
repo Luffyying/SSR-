@@ -4,7 +4,7 @@ const config = require('./webpack.base')
 
 const clientConfig = {
   mode: 'development',
-  entry: './client.js',
+  entry: './src/client/index.js',
   module: {
     rules: [{
       test: /\.css?$/,

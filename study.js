@@ -1,32 +1,32 @@
-//ssr 服务端渲染 
-import express from 'express'
-import Home  from './react'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-const variable = ReactDOMServer.renderToString(<Home />)
-console.log('转换之前')
-console.log(JSON.stringify(Home))
-console.log('Reacct转换成dom:Home'+variable);
-var app = express()
-app.use(express.static('public'));
-app.get('/',(req,res)=>{
-    res.send(
-        `<html>
-        <body>${variable}hello ssr</body>
-        <script src="/index.js"></script>
-        </html>`
-    )
-})
-app.get('/test',(req,res)=>{
-    res.send(
-        `<html>
-        <body>test</body>
-        </html>`
-    )
-})
-app.listen(3001,()=>{
-    console.log('listen 3001');
-})
+// //ssr 服务端渲染 
+// import express from 'express'
+// import Home  from './react'
+// import React from 'react'
+// import ReactDOMServer from 'react-dom/server'
+// const variable = ReactDOMServer.renderToString(<Home />)
+// console.log('转换之前')
+// console.log(JSON.stringify(Home))
+// console.log('Reacct转换成dom:Home'+variable);
+// var app = express()
+// app.use(express.static('public'));
+// app.get('/',(req,res)=>{
+//     res.send(
+//         `<html>
+//         <body>${variable}hello ssr</body>
+//         <script src="/index.js"></script>
+//         </html>`
+//     )
+// })
+// app.get('/test',(req,res)=>{
+//     res.send(
+//         `<html>
+//         <body>test</body>
+//         </html>`
+//     )
+// })
+// app.listen(3001,()=>{
+//     console.log('listen 3001');
+// })
 //此上就是服务端渲染了，就是服务器返回一堆html字符串,浏览器直接显示
 // ssr server side render csr client side render 客户端渲染
 
