@@ -16,7 +16,7 @@ import { renderRoutes } from 'react-router-config';
 // })
 class App extends PureComponent{
   componentDidMount(){
-    console.log('--client componentdidmount 嗷嗷');
+    // console.log('--client componentdidmount 嗷嗷');
   }
   render(){
     return (
